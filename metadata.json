@@ -1,0 +1,338 @@
+{
+  "eainfo": {
+    "detailed": {
+      "enttyp": {
+        "enttypl": "Attribute Table",
+        "enttypd": "Table containing attribute information associated with the data set.",
+        "enttypds": "Producer defined"
+      },
+      "attr": [
+        {
+          "attrlabl": "case_id",
+          "attrdef": "unique stable identification number",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "3000001",
+              "rdommax": "3096960",
+              "attrunit": "1"
+            }
+          }
+        },
+        {
+          "attrlabl": "faa_ors",
+          "attrdef": "faa unique identifier for each turbine for cross-reference to the faa digital obstacle files (faa dof )",
+          "attrdefs": "FAA, https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dof/",
+          "attrdomv": {
+            "udom": "identifier with the first two digits indicating a state, then a dash, with a sequential number following; \"missing\" values in the shapfile and blank values in the csv are ones with no known DOF identifier"
+          }
+        },
+        {
+          "attrlabl": "faa_asn",
+          "attrdef": "faa obstruction evaluation airport airspace analysis (oe-aaa) aeronautical study number (asn)",
+          "attrdefs": "FAA, https://oeaaa.faa.gov/oeaaa/external/public/publicAction.jsp",
+          "attrdomv": {
+            "udom": "year-region-number-case type (faa regional boundaries id across the country such as: AAL, ACE, AEA, AGL, ANE, ANM, ASO, ASW, AWP, WTE and WTW) (case types: Nonrule Making Airport. (NRA), Nonrule (NR), or an Obstruction Evaluation (OE) study; \"missing\" values in the shapfile and blank values in the csv are those with no known asn value"
+          }
+        },
+        {
+          "attrlabl": "eia_id",
+          "attrdef": "EIA identification for cross-reference to the EIA-860 data",
+          "attrdefs": "https://www.eia.gov/electricity/data/eia860/",
+          "attrdomv": {
+            "udom": "number from EIA-860 data - plant code in the wind technologyy data spreadsheet, -9999 values in the shapefile and blank values in the csv were not part of the referenced dataset,"
+          }
+        },
+        {
+          "attrlabl": "usgs_pr_id",
+          "attrdef": "unique, stable object number for cross-reference to a prior dataset",
+          "attrdefs": "USGS https://doi.org/10.5066/F7251G8Q",
+          "attrdomv": {
+            "udom": "unique, stable object number for cross-reference to the USGS Onshore Industrial Wind Turbine Locations for the United States 2013 and 2014 products; -9999 values in the shapefile and blank values in the csv were not part of the referenced dataset"
+          }
+        },
+        {
+          "attrlabl": "t_state",
+          "attrdef": "state where turbine is located",
+          "attrdefs": "U.S Census https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html",
+          "attrdomv": {
+            "codesetd": {
+              "codesetn": "US Postal 2-Letter State",
+              "codesets": "US Census / US Postal Service (http://www.census.gov/tiger/tms/gazetteer/zips.txt)"
+            }
+          }
+        },
+        {
+          "attrlabl": "t_county",
+          "attrdef": "county or county equivalent where turbine is located",
+          "attrdefs": "U.S Census https://www.census.gov/geo/maps-data/data/cbf/cbf_counties.html",
+          "attrdomv": {
+            "udom": "County or county equivalent, based on spatial join of turbine points with US state and county shapefile"
+          }
+        },
+        {
+          "attrlabl": "t_fips",
+          "attrdef": "state and county fips where turbine is located, based on spatial join of turbine points with US state and county shapefile",
+          "attrdefs": "U.S. Census",
+          "attrdomv": {
+            "codesetd": {
+              "codesetn": "FIPS Code (5-Digit State &; County ID)",
+              "codesets": "US Census / US Postal Service (http://www.census.gov/tiger/tms/gazetteer/zips.txt)"
+            }
+          }
+        },
+        {
+          "attrlabl": "p_name",
+          "attrdef": "name of the wind power project that the turbine is a part of",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "udom": "Project names are typically provided to AWEA by the developer; some names are identified from other internet resources, and others are created by the authors to differentiate them from previous projects. If no project name can be identified via these methods, authors assigned one based on the county where the turbines are located."
+          }
+        },
+        {
+          "attrlabl": "p_year",
+          "attrdef": "Year the wind power project became operational and began providing power. In some cases, the year is estimated based on the year the turbine was erected, which will precede when it became operational, and sometimes fall in the preceding year; -9999 values in the shapefile and blank values in the csv are unknown",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "1981",
+              "rdommax": "2019",
+              "attrunit": "Year"
+            }
+          }
+        },
+        {
+          "attrlabl": "p_tnum",
+          "attrdef": "number of turbines in the wind power project",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "1",
+              "rdommax": "796",
+              "attrunit": "Count"
+            }
+          }
+        },
+        {
+          "attrlabl": "p_cap",
+          "attrdef": "cumulative capacity of all turbines in the wind power project, in megawatts (MW); -9999 values in the shapefile and blank values in the csv are unknown",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "0.05",
+              "rdommax": "495.01",
+              "attrunit": "Megawatts"
+            }
+          }
+        },
+        {
+          "attrlabl": "t_manu",
+          "attrdef": "turbine manufacturer - name of the original equipment manufacturer of the turbine",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "udom": "E.g., Vestas, Siemens, Suzlon, etc.; \"missing\" values in the shapfile and blank values in the csv are unknown"
+          }
+        },
+        {
+          "attrlabl": "t_model",
+          "attrdef": "turbine model - manufacturer's model name of each turbine",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "udom": "E.g., 1.5SLE, V100_1.8, Z50, etc.; \"missing\" values in the shapfile and blank values in the csv are unknown"
+          }
+        },
+        {
+          "attrlabl": "t_cap",
+          "attrdef": "Turbine rated capacity in kilowatt (kW). The manufacturer's stated output power at rated wind speed. Data from AWEA, manufacturer data, and/or other internet resources; -9999 values in the shapefile and blank values in the csv are unknown",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "50",
+              "rdommax": "6000",
+              "attrunit": "kilowatt"
+            }
+          }
+        },
+        {
+          "attrlabl": "t_hh",
+          "attrdef": "turbine hub height in meters (m). Data from AWEA, manufacturer data, and/or other internet resources; -9999 values in the shapefile and blank values in the csv are unknown",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "18.2",
+              "rdommax": "130",
+              "attrunit": "meter"
+            }
+          }
+        },
+        {
+          "attrlabl": "t_rd",
+          "attrdef": "turbine rotor diameter in meters (m); -9999 values in the shapefile and blank values in the csv are unknown",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "11",
+              "rdommax": "150",
+              "attrunit": "meter"
+            }
+          }
+        },
+        {
+          "attrlabl": "t_rsa",
+          "attrdef": "turbine rotor swept area square meters (m^2); -9999 values in the shapefile and blank values in the csv are unknown, calculated as 3.14159 (([rotor_dia] /2)*([rotor_dia] /2)",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "95.03",
+              "rdommax": "17671.46",
+              "attrunit": "square meter"
+            }
+          }
+        },
+        {
+          "attrlabl": "t_ttlh",
+          "attrdef": "turbine total height - height of entire wind turbine from ground to tip of a vertically extended blade above the tower. Computed as the hub height plus half of the rotor diameter, in meters, when t_hh and t_rd are non-missing. Otherwise, the total height as provided by the FAA DOF or FAA OE/AAA is used, which can be considered a maximum height; -9999 values in the shapefile and blank values in the csv are unknown",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "26.7",
+              "rdommax": "198.1",
+              "attrunit": "meter"
+            }
+          }
+        },
+        {
+          "attrlabl": "t_conf_atr",
+          "attrdef": "Level of confidence in the turbine's attributes, from low to high",
+          "attrdefs": "Producer defined",
+          "attrdomv": [
+            {
+              "edom": {
+                "edomv": "1",
+                "edomvd": "no confidence: no information found",
+                "edomvds": "Producer defined"
+              }
+            },
+            {
+              "edom": {
+                "edomv": "2",
+                "edomvd": "partial confidence: incomplete information or discrepancies across data sources or other issues found",
+                "edomvds": "Producer defined"
+              }
+            },
+            {
+              "edom": {
+                "edomv": "3",
+                "edomvd": "full confidence: consistent information across multiple data sources",
+                "edomvds": "Producer defined"
+              }
+            }
+          ]
+        },
+        {
+          "attrlabl": "t_conf_loc",
+          "attrdef": "Level of confidence in turbine location, from low to high",
+          "attrdefs": "Producer defined",
+          "attrdomv": [
+            {
+              "edom": {
+                "edomv": "1",
+                "edomvd": "no confidence: nothing on image, image has clouds, never built, previously removed, needs newer imagery",
+                "edomvds": "Producer defined"
+              }
+            },
+            {
+              "edom": {
+                "edomv": "2",
+                "edomvd": "partial confidence: image shows developed pad with base and/or turbine parts on ground",
+                "edomvds": "Producer defined"
+              }
+            },
+            {
+              "edom": {
+                "edomv": "3",
+                "edomvd": "full confidence: image shows an installed turbine or tower being constructed, the tower is least partially present with neighboring turbine constructed",
+                "edomvds": "Producer defined"
+              }
+            }
+          ]
+        },
+        {
+          "attrlabl": "t_img_date",
+          "attrdef": "date of image used to visually verify turbine location (note if NAIP is the image source the month and day were set to 01/01)",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "6/14/1993",
+              "rdommax": "12/4/2019",
+              "attrunit": "date"
+            }
+          }
+        },
+        {
+          "attrlabl": "t_img_srce",
+          "attrdef": "source of image used to visually verify turbine location",
+          "attrdefs": "Producer defined",
+          "attrdomv": [
+            {
+              "edom": {
+                "edomv": "Bing Maps Aerial",
+                "edomvd": "ESRI ArcMap Base maps, available from ESRI ArcMap",
+                "edomvds": "Producer defined"
+              }
+            },
+            {
+              "edom": {
+                "edomv": "Digital Globe",
+                "edomvd": "Digital Globe EV WebHosting Imagery from https://www.digitalglobe.com/products/enhancedview-web-hosting-services",
+                "edomvds": "Producer defined"
+              }
+            },
+            {
+              "edom": {
+                "edomv": "Google Earth",
+                "edomvd": "Google Earth",
+                "edomvds": "Producer defined"
+              }
+            },
+            {
+              "edom": {
+                "edomv": "NAIP",
+                "edomvd": "National Agriculture Imagery Program County Mosaics from https://datagateway.nrcs.usda.gov/",
+                "edomvds": "Producer defined"
+              }
+            }
+          ]
+        },
+        {
+          "attrlabl": "xlong",
+          "attrdef": "current longitude of the turbine point, in decimal degrees calculated in Arc Map using GCS: North American 1983 (NAD 83)",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "-171.713074",
+              "rdommax": "144.722656",
+              "attrunit": "decimal degrees"
+            }
+          }
+        },
+        {
+          "attrlabl": "ylat",
+          "attrdef": "current latitude of the turbine point, in decimal degrees calculated in Arc Map using GCS: North American 1983 (NAD 83)",
+          "attrdefs": "Producer defined",
+          "attrdomv": {
+            "rdom": {
+              "rdommin": "13.389381",
+              "rdommax": "66.839905",
+              "attrunit": "decimal degrees"
+            }
+          }
+        }
+      ]
+    },
+    "overview": {
+      "eaover": "EntityandAttribute_DataDictionary.csv",
+      "eadetcit": "The entity and attribute information was generated by the individual and/or agency identified as the originator of the data set. Please review the rest of the metadata record for additional details and information."
+    }
+  }
+}
