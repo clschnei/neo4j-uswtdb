@@ -75,8 +75,3 @@ match (t:Turbine)
   merge (t)-[b:BUILT]->(p)
   set p.year = t.p_year
   return count(p);
-
-
-docker-compose run db bash
-
-cypher-shell -u neo4j -p j4oen -a bolt://db:7687 -f /scripts/load.cql
